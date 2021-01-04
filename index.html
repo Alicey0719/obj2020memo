@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>保存できないメモ</title>
+    <script src="vueFunc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <div id="app">
+        <h1>消えてしまうメモが追加できます</h1>
+        <textarea id="memoInput" name="text" rows="4" cols="40" v-model="input">メモ内容</textarea>
+
+        <br>
+        <button class="button" v-on:click="addMemo">投稿</button>
+
+        <div id="border"></div>
+
+        <div id="memoArea">
+            <div class="memo" v-for="memo in memoArray">
+                <p class="date">{{ memo.memoDate }}</p>
+                <p class="text">{{ memo.memoStr }}</p>
+                <div class="goodArea">
+                    <p v-on:click="memo.goodNum++">👍</p>
+                    <p>{{ memo.goodNum }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
